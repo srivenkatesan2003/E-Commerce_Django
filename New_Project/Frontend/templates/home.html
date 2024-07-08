@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+{% block content%}
+
+    {{name}}
+    {{age}}
+    {{phone}}
+    {{marks}}
+    <h1>Welcome To python </h1>
+    {% if role == "admin" %}
+        <h1>Welcome to {{name}}</h1>
+
+    {% elif role == "manager"%}
+        <h2>Welcome to manager</h2>
+
+    {% else %}
+        <h3>Welcome to student</h3>
+    {% endif %}
+
+
+    {% for i in phone %}
+        <p>This is number{{i}}</p>
+        <br>
+    {% endfor %}
+
+
+{% endblock %}
+</body>
+</html>

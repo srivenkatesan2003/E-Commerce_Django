@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>All Product</h1>
+    <body>
+        <!-- {{product_name}} -->
+
+<a href="/hi/form/">
+    <button>Add Products</button>
+</a>
+<table border="1">
+    <thead>
+        <tr>
+            <th>product name</th>
+            <th>product code</th>
+            <th>price</th>
+            <th>gst</th>
+            <th>food product</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in all_product %}
+        <tr>
+            <td>{{i.product_name}}</td>
+            <td>{{i.product_code}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.gst}}</td>
+            <td>{{i.food_product}}</td>
+            <td>
+                <a href="{% url 'product_update' i.id %}">
+                    <button>update</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'product_delete' i.id %}">
+                    <button>delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

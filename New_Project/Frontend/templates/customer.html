@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-center text-light fs-3 m-2"></h1>
+<div class="container">
+    <a href="/order/add/customers/">
+        <button class="btn btn-primary float-end m-2">+ Add Customers</button>
+    </a>
+</div>
+
+
+    <h1>Customers Details</h1>
+    <body>
+        <!-- {{product_name}} -->
+<div class="container">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>customer_name</th>
+                <th>custommer_since</th>
+                <th>update</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customer_details %}
+            <tr>
+                <td>{{customer.customer_name}}</td>
+                <td>{{customer.customer_since}}</td>
+                <td>
+                    <a href="{% url 'customer_update' customer.id %}">
+                        <button>update</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'customer_delete' customer.id %}">
+                        <button>delete</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque illum provident voluptatum dicta, accusamus ab harum odio excepturi ullam minima consequuntur eius porro, tempora sed placeat quis officia suscipit? Qui!</p>
+</div>
+
+<div class="container">
+    <table class="table table-dark"></table>
+</div>
+
+{% endblock %}
